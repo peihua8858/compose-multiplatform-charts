@@ -12,6 +12,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     alias(libs.plugins.dokka)
+    id("maven-publish")
 }
 
 kotlin {
@@ -56,3 +57,5 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
         }
     }
 }
+group = "com.github.peihua8858"
+version = "1.0.0"
