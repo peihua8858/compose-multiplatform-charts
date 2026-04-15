@@ -10,6 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 @Composable
 actual fun imageResources(image: String): Painter = painterResource("drawable/$image")
 
+@Composable
 actual fun fontResources(
     font: String,
     weight: FontWeight,
