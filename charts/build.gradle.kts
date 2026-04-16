@@ -16,10 +16,17 @@ plugins {
 }
 
 kotlin {
-    androidTarget()
-    jvm("desktop")
+    androidTarget{
+        publishLibraryVariants("release")
+    }
+    jvm()
+
 
     sourceSets {
+        androidMain {
+            dependencies {
+            }
+        }
         commonMain {
             dependencies {
                 api(libs.compose.runtime)
@@ -59,3 +66,12 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
 }
 group = "com.github.peihua8858"
 version = "1.0.0"
+val localRepoUrl = "${rootProject.buildDir}/repos"
+publishing {
+    repositories {
+        maven {
+            name = "localDir"
+            url = uri(localRepoUrl)
+        }
+    }
+}
